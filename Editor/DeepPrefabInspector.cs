@@ -68,9 +68,6 @@ public class DeepPrefabInspector:TransformInspector {
 				EditorGUILayout.BeginHorizontal();
 			}
 
-			// Horizontal layout for foldout and button
-			//EditorGUILayout.BeginHorizontal();
-
 			// Foldout or label with name (depending on whether or not we have children)
 			if(parent.childCount > 0) {
 				prefabTreeState[prefabIndex] = EditorGUILayout.Foldout(prefabTreeState[prefabIndex], parent.name);
@@ -85,9 +82,11 @@ public class DeepPrefabInspector:TransformInspector {
 			// End layout
 			EditorGUILayout.EndHorizontal();
 		}
+		
+		// Indent Children
 		EditorGUI.indentLevel++;
 
-		// Update show status
+		// Update show status based on parent visibility and if the current tree branch is folded or not
 		show = show && prefabTreeState[prefabIndex];
 
 		// Add Children
@@ -96,6 +95,8 @@ public class DeepPrefabInspector:TransformInspector {
 			child = parent.GetChild(i);
 			BuildPrefabTree(child, show);
 		}
+		
+		// Undo indent
 		EditorGUI.indentLevel--;
 	}
 }
