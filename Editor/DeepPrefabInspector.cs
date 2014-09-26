@@ -121,9 +121,11 @@ public class DeepPrefabInspector:TransformInspector {
 			// End layout
 			EditorGUILayout.EndHorizontal();
 		}
+
+		// Indent children
 		EditorGUI.indentLevel++;
 
-		// Update show status
+		// Update show status based on parent visibility and if the current tree branch is folded or not
 		show = show && prefabTreeState[prefabIndex];
 
 		// Add Children
@@ -132,6 +134,8 @@ public class DeepPrefabInspector:TransformInspector {
 			child = parent.GetChild(i);
 			BuildPrefabTree(child, show);
 		}
+
+		// Undo indent
 		EditorGUI.indentLevel--;
 	}
 
