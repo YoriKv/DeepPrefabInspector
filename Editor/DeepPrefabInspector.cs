@@ -36,7 +36,7 @@ public class DeepPrefabInspector:TransformInspector {
 				selectedBoxStyle.margin = new RectOffset(0, 0, 0, 0);
 				selectedBoxStyle.border = new RectOffset(0, 0, 0, 0);
 				selectedBoxStyle.normal.background = new Texture2D(1, 1, TextureFormat.ARGB32, false);
-				selectedBoxStyle.normal.background.SetPixel(0, 0, new Color(62f / 255f, 95f / 255f, 150f / 255f));
+				selectedBoxStyle.normal.background.SetPixel(0, 0, new Color(72f / 255f, 72f / 255f, 72f / 255f));
 				selectedBoxStyle.normal.background.Apply();
 				// Default styles - remove blue on select text
 				defaultFoldoutStyle = new GUIStyle(EditorStyles.foldout);
